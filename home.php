@@ -34,18 +34,7 @@
 
                 if(isset($_SESSION['user_id'])) {
                     ?>
-                    <li><a href="rental.php">대출 조회/연장</a></li>
-                    <li><a href="reserve.php">예약 조회/취소</a></li>
-                    <li><a href="previous.php">이전 대출기록</a></li>
                     <li><a href="myInfo.php">내 정보</a></li>
-                    <?php
-                    if(isset($_SESSION['admin_id'])) {
-                        ?>
-                        <li class="on"><a href="adminRESERVE.php">예약취소 메일 보내기</a></li>
-                        <li><a href="valuable.php">유용한 통계</a></li>
-                        <?php
-                    }
-                    ?>
                     <li><?php echo $_SESSION['user_name']."님, "?><a href="logout.php">로그아웃</a></li>
                     <?php
                 } else {
