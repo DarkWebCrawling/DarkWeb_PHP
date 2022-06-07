@@ -109,7 +109,7 @@
     //}
 
     ?>
-
+<div align = "center">
     <?php
     if($page > 1){
         echo "<a href=\"crawlingtest_img.php?page=1\">[처음] </a>";
@@ -138,6 +138,7 @@
         echo "<a href=\"crawlingtest_img.php?page=$total_page\">[끝]</a>";
     }
     ?>
+</div>
 <div class = text>
     <font style="cursor: hand"onClick="location.href='./home.php'">뒤로가기</font>
 </div>
