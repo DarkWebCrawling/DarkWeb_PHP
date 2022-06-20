@@ -39,8 +39,6 @@
                     <?php
                 } else {
                     ?>
-                    <li><a href="./signin.php">로그인</a></li>
-                    <li><a href="./signup.php">회원가입</a></li>
                     <?php
                 }
                 ?>
@@ -49,7 +47,8 @@
     </div>
     <div class="footerInfo">
         <address>(13조) 졸업프로젝트 과제</address>
-        <address>E-MAIL : ming_ssok@g.cnu.ac.kr<p> </p></address>
+        <address><a href="https://github.com/DarkWebCrawling">GitHub : github.com/DarkWebCrawling</a></address>
+        <address><a href="mailto:ming_ssok@g.cnu.ac.kr">E-MAIL : ming_ssok@g.cnu.ac.kr</a></address>
     </div>
     </ul>
 </div>

@@ -35,6 +35,21 @@
 <body>
 
 <h2 align=center><a href = "./crawlingtest.php">다크웹 크롤링 (단어 데이터)</a></h2>
+
+<form class="row">
+    <div class="col-10">
+        <label for="searchWord" class="visually-hidden">Search Word Data</label>
+        <input type="text" class="form-control" id="searchWord" name="searchWord" placeholder="Search Word Data" value="<?= $searchWord ?>">
+    </div>
+    <div class="col-auto text-end">
+    </div>
+
+    <div class="col-auto text-end">
+        <button type="submit" class="btn btn-primary mb-3">검색</button>
+    </div>
+
+</form>
+
 <table align = center>
     <thead align = "center">
     <tr>
@@ -48,12 +63,10 @@
     <tbody>
 
     <?php
-    $searchNo = $_GET['searchNo'];
-    $searchTitle = $_GET['searchTitle'];
-    $searchData = $_GET['searchData'];
+    $searchWord = $_GET['searchWord'];
 
     $conn = mysqli_connect('146.56.172.84', 'root', '871717', 'CRIME', 3306);
-    $query = "SELECT * FROM melon";
+    $query = "SELECT * FROM melon where album like'%$searchWord%'";
     $result = $conn->query($query);
     $total = mysqli_num_rows($result);
 
@@ -64,7 +77,7 @@
         $page = 1;
     }
 
-    $sql = "SELECT * FROM melon";
+    $sql = "SELECT * FROM melon where album like '%$searchWord%'";
     $res = mysqli_query($conn, $sql);
 
     $total_post = mysqli_num_rows($res);
@@ -73,7 +86,7 @@
     $start = ($page-1)*$per + 1;
     $start -= 1;
 
-    $sql_page = "SELECT * FROM melon limit $start, $per";
+    $sql_page = "SELECT * FROM melon where album like '%$searchWord%' limit $start, $per";
     $res_page = mysqli_query($conn, $sql_page);
 
     while($row = mysqli_fetch_array($res_page)){ //DB에 저장된 데이터 수 (열 기준)
@@ -99,14 +112,6 @@
 
     $total_page = ceil($total_post / $per);
     $page_num = 1;
-
-    //while($page_num <= $total_page){
-    //    if($page==$page_num){
-    //        echo "<a style=\"color:purple;\" href=\"crawlingtest3.php?page=$page_num\">$page_num </a>";
-    //    } else {
-    //        echo "<a href=\"crawlingtest3.php?page=$page_num\">$page_num </a>"; }
-    //    $page_num++;
-    //}
 
     ?>
 <div align = "center">
@@ -142,5 +147,8 @@
 <div class = text>
     <font style="cursor: hand"onClick="location.href='./home.php'">뒤로가기</font>
 </div>
+
+
+
 </body>
 </html>
