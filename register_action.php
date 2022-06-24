@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect('146.56.172.84', 'root', '871717', 'diary', 3306);
+$connect = mysqli_connect('146.56.172.84', 'root', '871717', 'CRIME', 3306);
 
 $id = $_POST['id'];
 $pw = $_POST['pw'];

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$connect = mysqli_connect('146.56.172.84', 'root', '871717', 'diary', 3306);
+$connect = mysqli_connect('146.56.172.84', 'root', '871717', 'CRIME', 3306);
 
 //입력 받은 id와 password
 $id = $_POST['id'];
