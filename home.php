@@ -32,13 +32,13 @@
                 session_start();
                 /* 주석 테스트 */
 
-                if(isset($_SESSION['user_id'])) {
+                if(isset($_SESSION['userid'])) {
                     ?>
-                    <li><a href="myInfo.php">내 정보</a></li>
-                    <li><?php echo $_SESSION['user_name']."님, "?><a href="logout.php">로그아웃</a></li>
+                    <li><?php echo $_SESSION['userid']."님, "?><a href="logout_action.php">로그아웃</a></li>
                     <?php
                 } else {
                     ?>
+                    <li><a href="login.php">로그인</a></li>
                     <?php
                 }
                 ?>
@@ -47,8 +47,8 @@
     </div>
     <div class="footerInfo">
         <address>(13조) 졸업프로젝트 과제</address>
-        <address><a href="https://github.com/DarkWebCrawling">GitHub : github.com/DarkWebCrawling</a></address>
-        <address><a href="mailto:ming_ssok@g.cnu.ac.kr">E-MAIL : ming_ssok@g.cnu.ac.kr</a></address>
+        <address><a href="https://github.com/DarkWebCrawling">👨🏻‍💻GitHub : github.com/DarkWebCrawling</a></address>
+        <address><a href="mailto:ming_ssok@g.cnu.ac.kr">📨 E-MAIL : ming_ssok@g.cnu.ac.kr</a></address>
     </div>
     </ul>
 </div>
