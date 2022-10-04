@@ -37,16 +37,15 @@
 <h2 align=center><a href = "./crawlingtest.php">다크웹 크롤링 (단어 데이터)</a></h2>
 
 <form class="row">
-    <div class="col-10">
-        <label for="searchWord" class="visually-hidden">Search Word Data</label>
+    <div class="col-10" align="center">
+        <label for="searchWord" class="visually-hidden">단어 검색</label>
         <input type="text" class="form-control" id="searchWord" name="searchWord" placeholder="Search Word Data" value="<?= $searchWord ?>">
+        <button type="submit" class="btn btn-primary mb-3">검색</button>
     </div>
     <div class="col-auto text-end">
     </div>
 
-    <div class="col-auto text-end">
-        <button type="submit" class="btn btn-primary mb-3">검색</button>
-    </div>
+
 
 </form>
 
@@ -54,8 +53,8 @@
     <thead align = "center">
     <tr>
         <td width = "50" align="center">No</td>
-        <td width = "200" align = "center">TITLE</td>
-        <td width = "200" align = "center">WORD DATA</td>
+        <td width = "200" align = "center">제목</td>
+        <td width = "200" align = "center">수집된 단어 데이터</td>
         <td width = "200" align = "center">URL</td>
     </tr>
     </thead>

@@ -47,7 +47,7 @@
     </div>
     <div class="footerInfo">
         <address>(13조) 졸업프로젝트 과제</address>
-        <address><a href="https://github.com/DarkWebCrawling">👨🏻‍💻GitHub : github.com/DarkWebCrawling</a></address>
+        <address><a href="https://github.com/DarkWebCrawling">👨🏻‍💻 GitHub : github.com/DarkWebCrawling</a></address>
         <address><a href="mailto:ming_ssok@g.cnu.ac.kr">📨 E-MAIL : ming_ssok@g.cnu.ac.kr</a></address>
     </div>
     </ul>
