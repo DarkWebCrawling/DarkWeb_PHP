@@ -35,25 +35,36 @@
 <body>
 
 <h2 align=center><a href = "./crawling_siyeon.php">다크웹 크롤링 시연 (단어 데이터)</a></h2>
+
+<form class="row">
+    <div class="col-10" align="center">
+        <label for="searchWord" class="visually-hidden">TITLE 검색</label>
+        <input type="text" class="form-control" id="searchWord" name="searchWord" placeholder="Search TITLE" value="<?= $searchWord ?>">
+        <button type="submit" class="btn btn-primary mb-3">검색</button>
+    </div>
+    <div class="col-auto text-end">
+    </div>
+</form>
+
 <table align = center>
     <thead align = "center">
     <tr>
         <td width = "50" align="center">No</td>
         <td width = "200" align = "center">TITLE</td>
-        <td width = "200" align = "center">WORD DATA</td>
         <td width = "200" align = "center">URL</td>
+        <td width = "200" align = "center">범죄여부</td>
+        <td width = "200" align = "center">카테고리</td>
+
     </tr>
     </thead>
 
     <tbody>
 
     <?php
-    $searchNo = $_GET['searchNo'];
-    $searchTitle = $_GET['searchTitle'];
-    $searchData = $_GET['searchData'];
+    $searchWord = $_GET['searchWord'];
 
     $conn = mysqli_connect('146.56.172.84', 'root', '871717', 'CRIME', 3306);
-    $query = "SELECT * FROM wordSiyeon";
+    $query = "SELECT * FROM wordSiyeon where title like'%$searchWord%'";
     $result = $conn->query($query);
     $total = mysqli_num_rows($result);
 
@@ -64,7 +75,7 @@
         $page = 1;
     }
 
-    $sql = "SELECT * FROM wordSiyeon";
+    $sql = "SELECT * FROM wordSiyeon where title like '%$searchWord%'";
     $res = mysqli_query($conn, $sql);
 
     $total_post = mysqli_num_rows($res);
@@ -73,7 +84,7 @@
     $start = ($page-1)*$per + 1;
     $start -= 1;
 
-    $sql_page = "SELECT * FROM wordSiyeon limit $start, $per";
+    $sql_page = "SELECT * FROM wordSiyeon where title like '%$searchWord%' limit $start, $per";
     $res_page = mysqli_query($conn, $sql_page);
 
     while($row = mysqli_fetch_array($res_page)){ //DB에 저장된 데이터 수 (열 기준)
@@ -85,8 +96,9 @@
         <?php } ?>
         <td width=50 align="center" style="word-break:break-all"><?php echo $row['NO']?></td>
         <td width=420 align="center" style="word-break:break-all"><?php echo $row['title']?></td>
-        <td width=420 align="center" style="word-break:break-all"><?php echo $row['album']?></td>
         <td width=420 align="center" style="word-break:break-all"><a href = "<?php echo $row['url']?>"><?php echo $row['url']?></td>
+        <td width=420 align="center" style="word-break:break-all"><?php echo $row['crime']?></td>
+        <td width=420 align="center" style="word-break:break-all"><?php echo $row['cate']?></td>
         </tr>
         <?php
         $total--;
@@ -95,20 +107,12 @@
     </tbody>
 </table>
 
-    <?php
+<?php
 
-    $total_page = ceil($total_post / $per);
-    $page_num = 1;
+$total_page = ceil($total_post / $per);
+$page_num = 1;
 
-    //while($page_num <= $total_page){
-    //    if($page==$page_num){
-    //        echo "<a style=\"color:purple;\" href=\"crawlingtest3.php?page=$page_num\">$page_num </a>";
-    //    } else {
-    //        echo "<a href=\"crawlingtest3.php?page=$page_num\">$page_num </a>"; }
-    //    $page_num++;
-    //}
-
-    ?>
+?>
 <div align = "center">
     <?php
     if($page > 1){
@@ -139,9 +143,11 @@
     }
     ?>
 </div>
-    <div class = text>
-        <font style="cursor: hand"onClick="location.href='./home.php'">뒤로가기</font>
-    </div>
+<div class = text>
+    <font style="cursor: hand"onClick="location.href='./home.php'">뒤로가기</font>
+</div>
+
+
 
 </body>
 </html>

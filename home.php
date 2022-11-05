@@ -9,7 +9,7 @@
 
 <header>
     <center>
-        <h1>범죄 데이터 수집 장소</h1>
+        <a href="./home.php"><h1>범죄 데이터 수집 장소</h1></a>
     </center>
 </header>
 
